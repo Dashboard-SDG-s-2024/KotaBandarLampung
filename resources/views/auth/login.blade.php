@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Admin</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+  <style>
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f0f0f900;
+        opacity: 1;
+        background-image: radial-gradient(#99a9e3 0.8px, transparent 0.8px), radial-gradient(#99a9e3 0.8px, #f0f0f900 0.8px);
+        background-size: 32px 32px;
+        background-position: 0 0, 16px 16px;
+    }
+</style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="col d-flex align-items-center justify-content-center vh-100">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{{ asset('assets/img/logo.png') }}" alt="AdminLTELogo" width="60">
+  </div>
+
+  <div class="card card-success m-2" style="width: 500px;">
+    <div class="card-header justify-content-between">
+      <div class="card-title col-6 pt-1">LOGIN ADMIN</div>
+      <div class="card-title col-6 text-right"><img src="{{asset('assets/img/logo.png')}}" alt="" style="width: 30px;"></div>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+      <div class="card-body">
+        
+        <div class="form-group">
+          <label for="email">{{ __('Alamat Email') }}</label>
+          <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Masukkan alamat email" value="{{ old('email') }}" name="email" required autocomplete="email" autofocus>
+          @if ($errors->has('email'))
+          <div class="my-2 alert alert-danger">
+              {{ __('Email atau Password yang anda masukkan tidak sesuai') }}
+          </div>
+      @endif
+        </div>
+        <div class="form-group">
+          <label for="password">{{ __('Kata Sandi') }}</label>
+          <div class="input-group">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Masukkan kata sandi" name="password" required autocomplete="current-password">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                <i class="fas fa-eye" id="toggleIcon"></i>
+              </button>
+            </div>
+          </div>
+          @error('password')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+          @enderror
+        </div>
+        <div class="text-center items-center">
+            <button type="submit" class="btn btn-success">{{ __('Masuk') }}</button>
+          </div>
+      </div>
+      <!-- /.card-body -->      
+    </form>
+  </div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- ChartJS -->
+<script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+<!-- Sparkline -->
+<script src="{{ asset('plugins/sparklines/sparkline.js') }}"></script>
+<!-- JQVMap -->
+<script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js') }}"></script>
+<script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+<!-- daterangepicker -->
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('plugins/daterangepicker/daterangepicker.js') }}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+<!-- Summernote -->
+<script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('dist/js/adminlte.js') }}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+
+<script>
+  document.getElementById('togglePassword').addEventListener('click', function (e) {
+    const passwordInput = document.getElementById('password');
+    const passwordIcon = document.getElementById('toggleIcon');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      passwordIcon.classList.remove('fa-eye');
+      passwordIcon.classList.add('fa-eye-slash');
+    } else {
+      passwordInput.type = 'password';
+      passwordIcon.classList.remove('fa-eye-slash');
+      passwordIcon.classList.add('fa-eye');
+    }
+  });
+</script>
+</body>
+</html>
