@@ -353,7 +353,7 @@
                 <h3 class="text-base font-weight-bold">
                     <i class="fas fa-info-circle mr-2" style="color: rgb(85, 85, 235)"></i> Kabar Terbaru
                 </h3>
-                <a href="/berita" class="text-primary">Lihat berita lainnya</a>
+                <a href="{{ route('berita.index') }}" class="text-primary">Lihat berita lainnya</a>
             </div>
             <div class="row">
                 @if ($beritas->isEmpty())
@@ -361,7 +361,7 @@
                     <div class="alert alert-info" role="alert" style="border-radius: 12px; background-color: #e3f2fd; color: #0d47a1; padding: 20px;">
                         <i class="fas fa-exclamation-circle fa-3x mb-3" style="color: #0d47a1;"></i>
                         <h4 class="alert-heading font-weight-bold">Belum Ada Berita!</h4>
-                        <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a href="/kontak" class="text-primary">hubungi kami</a> jika ada pertanyaan.</p>
+                        <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a href="{{ route('kontak') }}" class="text-primary">hubungi kami</a> jika ada pertanyaan.</p>
                     </div>
                 </div>                
                 @else
@@ -370,7 +370,7 @@
                             $gambar_berita = json_decode($berita->gambar_berita, true);
                             $first_image = $gambar_berita[0] ?? null;
                         @endphp
-                        <a href="/berita/{{ $berita->slug_berita }}" class="col-md-4 card-berita">
+                        <a href="{{ route('berita.show', $berita->slug_berita) }}" class="col-md-4 card-berita">
                             <div class="card mb-4" style="border-radius: 12px;">
                                 @if ($index === 0 && $first_image)
                                     <div class="card-img-top-container"
@@ -414,7 +414,7 @@
                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}" style="border-radius: 12px">
                             @if ($pilar->id == 1)
                                 <a class="card bg-gradient-danger w-100 text-white p-5" style="border-radius: 12px"
-                                    href="/pilar/{{ $pilar->id }}">
+                                    href="{{ route('detail-pilar', $pilar->id) }}">
                                     <div class="d-flex justify-content-center align-items-center mb-3">
                                         <img src="{{ asset('assets/ikon/' . $pilar->ikon_pilar) }}" width="50"
                                             alt="">
@@ -426,7 +426,7 @@
                                 </a>
                             @elseif ($pilar->id == 2)
                                 <a class="card bg-gradient-warning w-100 text-white p-5" style="border-radius: 12px"
-                                    href="/pilar/{{ $pilar->id }}">
+                                    href="{{ route('detail-pilar', $pilar->id) }}">
                                     <div class="d-flex justify-content-center align-items-center mb-3">
                                         <img src="{{ asset('assets/ikon/' . $pilar->ikon_pilar) }}" width="50"
                                             alt="">
@@ -438,7 +438,7 @@
                                 </a>
                             @elseif ($pilar->id == 3)
                                 <a class="card bg-gradient-success w-100 text-white p-5" style="border-radius: 12px"
-                                    href="/pilar/{{ $pilar->id }}">
+                                    href="{{ route('detail-pilar', $pilar->id) }}">
                                     <div class="d-flex justify-content-center align-items-center mb-3">
                                         <img src="{{ asset('assets/ikon/' . $pilar->ikon_pilar) }}" width="50"
                                             alt="">
@@ -449,7 +449,7 @@
                                 </a>
                             @elseif ($pilar->id == 4)
                                 <a class="card bg-gradient-primary w-100 text-white p-5" style="border-radius: 12px"
-                                    href="/pilar/{{ $pilar->id }}">
+                                    href="{{ route('detail-pilar', $pilar->id) }}">
                                     <div class="d-flex justify-content-center align-items-center mb-3">
                                         <img src="{{ asset('assets/ikon/' . $pilar->ikon_pilar) }}" width="50"
                                             alt="">
@@ -483,7 +483,7 @@
                 <div class="carousel-inner rounded-lg">
                     @foreach ($tujuans as $index => $tujuan)
                         <div class="carousel-item @if ($index == 0) active @endif">
-                            <a href="/tujuan/{{ $tujuan->id }}">
+                            <a href="{{ route('tujuan', $tujuan->id) }}">
                                 <img class="d-block w-100 rounded-lg"
                                     src="{{ asset('assets/ikon/' . $tujuan->ikon_tujuan) }}"
                                     alt="{{ $tujuan->nama_tujuan }}">
@@ -509,7 +509,7 @@
         <div class="container d-none d-md-block">
             <div class="text-center">
                 @foreach ($tujuans as $tujuan)
-                    <a href="/tujuan/{{ $tujuan->id }}" id="carousel" class="scroll-animation">
+                    <a href="{{ route('tujuan', $tujuan->id) }}" id="carousel" class="scroll-animation">
                         <img src="{{ asset('assets/ikon/' . $tujuan->ikon_tujuan) }}" width="184"
                             class="rounded-lg my-1" alt="{{ $tujuan->nama_tujuan }}">
                     </a>

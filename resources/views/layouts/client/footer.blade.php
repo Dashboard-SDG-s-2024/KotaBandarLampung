@@ -10,7 +10,7 @@
     <div class="container py-5">
         <div class="row px-3">
             <div style="display: flex; align-items: center;">
-                <a class="navbar-brand" href="/login"><img src="{{ asset('assets/img/logo-sdgs.png') }}" width="50"
+                <a class="navbar-brand" href="{{route('login')}}"><img src="{{ asset('assets/img/logo-sdgs.png') }}" width="50"
                         alt=""></a>
                 <h1 style="margin-left: 15px;">SDGs Kota Bandar Lampung</h1>
             </div>

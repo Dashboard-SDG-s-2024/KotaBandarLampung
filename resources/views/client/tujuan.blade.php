@@ -67,7 +67,7 @@
             <div class="row d-none d-md-flex">
                 @foreach ($tujuans as $tujuan)
                     <div class="col-md-3 mb-4 card-tujuan">
-                        <a href="/tujuan/{{ $tujuan->id }}">
+                        <a href="{{ route('tujuan', $tujuan->id) }}">
                             <div class="card bg-white p-3"
                                 style="min-height: 200px; max-height: 200px; border-radius: 12px;">
                                 <div class="card-body d-flex justify-content-center align-items-center mb-3">
@@ -89,7 +89,7 @@
                                     <div class="row">
                                         @foreach ($chunk as $tujuan)
                                             <div class="col-md-3 mb-4 card-tujuan" id="carousel">
-                                                <a href="/tujuan/{{ $tujuan->id }}">
+                                                <a href="{{ route('tujuan', $tujuan->id) }}">
                                                     <div class="card bg-white p-3"
                                                         style="min-height: 200px; max-height: 200px">
                                                         <div

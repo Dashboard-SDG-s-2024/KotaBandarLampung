@@ -83,15 +83,15 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('/', [BerandaController::class, 'index'])->name('index');
+Route::get('/', [BerandaController::class, 'index'])->name('home');
 Route::get('prediksi', [PrediksiController::class, 'index'])->name('prediksi');
-Route::get('/pembanding', [PembandingController::class, 'index']);
+Route::get('/pembanding', [PembandingController::class, 'index'])->name('pembanding');
 Route::get('/pembanding/indikators/{tujuanId}', [PembandingController::class, 'getIndikators']);
 Route::get('/pembanding/pencapaian/{tujuanId}/{kecamatanId}', [PembandingController::class, 'getPencapaian']);
 Route::get('/pembanding/kecamatans', [PembandingController::class, 'getKecamatans']);
 Route::get('geospasial', [GeospasialController::class, 'index'])->name('geospasial');
 Route::get('pilar/{id}', [BerandaController::class, 'show'])->name('detail-pilar');
-Route::get('tujuan', [TujuansController::class, 'index'])->name('tujuan');
+Route::get('tujuan', [TujuansController::class, 'index'])->name('tujuan.index');
 Route::get('tujuan/{id}', [TujuansController::class, 'show'])->name('tujuan');
 Route::get('target', [TargetController::class, 'index'])->name('target');
 Route::get('dokumen', [DokumenController::class, 'index'])->name('dokumen');

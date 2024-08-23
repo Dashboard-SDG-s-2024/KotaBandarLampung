@@ -38,7 +38,7 @@
     @endif
     <div class="text-center">
         @foreach ($tujuans as $tujuan)
-            <a href="/tujuan/{{ $tujuan->id }}">
+            <a href="{{ route('tujuan', $tujuan->id) }}">
                 <img src="{{ asset('assets/ikon/' . $tujuan->ikon_tujuan) }}" width="185" alt="">
             </a>
         @endforeach

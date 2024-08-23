@@ -43,7 +43,7 @@
         @if ($beritas->isEmpty())
             <div class="alert alert-info text-center">
                 <h4 class="alert-heading font-weight-bold">Belum Ada Berita!</h4>
-                        <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a href="/kontak" class="text-warning">hubungi kami</a> jika ada pertanyaan.</p>
+                        <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a href="{{route('kontak')}}" class="text-warning">hubungi kami</a> jika ada pertanyaan.</p>
             </div>
         @else
             <div class="d-flex flex-wrap">

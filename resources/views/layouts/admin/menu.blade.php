@@ -3,7 +3,7 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-                <a href="/super/dashboard/" class="nav-link text-white">
+                <a href="{{ route('super.index') }}" class="nav-link text-white">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/" class="nav-link text-white">
+                <a href="{{ route('home') }}" class="nav-link text-white">
                     <i class="nav-icon fas fa-home"></i>
                     <p>
                         Home
@@ -28,13 +28,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/super/user/" class="nav-link text-white">
+                        <a href="{{ route('super.user.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data User</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/super/user/create/" class="nav-link text-white">
+                        <a href="{{ route('super.user.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Tambah Data User</p>
                         </a>
@@ -51,15 +51,15 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/super/pilar/" class="nav-link text-white">
+                        <a href="{{ route('super.pilar.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Pilar</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/super/pilar/create/" class="nav-link text-white">
+                        <a href="{{ route('super.pilar.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Tambah Data pilar</p>
+                            <p>Tambah Data Pilar</p>
                         </a>
                     </li>
                 </ul>
@@ -74,13 +74,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/super/tujuan/" class="nav-link text-white">
+                        <a href="{{ route('super.tujuan.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Tujuan</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/super/tujuan/create/" class="nav-link text-white">
+                        <a href="{{ route('super.tujuan.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Tambah Data Tujuan</p>
                         </a>
@@ -97,13 +97,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/super/indikator/" class="nav-link text-white">
+                        <a href="{{ route('super.indikator.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Indikator</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/super/indikator/create/" class="nav-link text-white">
+                        <a href="{{ route('super.indikator.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p><small>Tambah Data Indikator</small></p>
                         </a>
@@ -120,13 +120,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/super/pencapaian/" class="nav-link text-white">
+                        <a href="{{ route('super.pencapaian.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Pencapaian</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/super/pencapaian/create/" class="nav-link text-white">
+                        <a href="{{ route('super.pencapaian.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p><small>Tambah Data Pencapaian</small></p>
                         </a>
@@ -143,13 +143,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/super/dokumen/" class="nav-link text-white">
+                        <a href="{{ route('super.dokumen.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Dokumen</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/super/dokumen/create/" class="nav-link text-white">
+                        <a href="{{ route('super.dokumen.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p><small>Tambah Data Dokumen</small></p>
                         </a>
@@ -166,13 +166,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/super/berita/" class="nav-link text-white">
+                        <a href="{{ route('super.berita.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Berita</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/super/berita/create/" class="nav-link text-white">
+                        <a href="{{ route('super.berita.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p><small>Tambah Data Berita</small></p>
                         </a>
@@ -198,7 +198,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
             data-accordion="false">
             <li class="nav-item">
-                <a href="/admin/dashboard/" class="nav-link text-white">
+                <a href="{{ route('admin.index') }}" class="nav-link text-white">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -206,7 +206,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/" class="nav-link text-white">
+                <a href="{{ route('home') }}" class="nav-link text-white">
                     <i class="nav-icon fas fa-home"></i>
                     <p>
                         Home
@@ -223,7 +223,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/admin/tujuan/" class="nav-link text-white">
+                        <a href="{{ route('admin.tujuan') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Tujuan</p>
                         </a>
@@ -240,13 +240,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/admin/indikator/" class="nav-link text-white">
+                        <a href="{{ route('admin.indikator.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Indikator</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/admin/subindikator/create/" class="nav-link text-white">
+                        <a href="{{ route('admin.indikator.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Tambah Data Indikator</p>
                         </a>
@@ -263,13 +263,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/admin/pencapaian/" class="nav-link text-white">
+                        <a href="{{ route('admin.pencapaian.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Pencapaian</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/admin/pencapaian/create/" class="nav-link text-white">
+                        <a href="{{ route('admin.pencapaian.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p><small>Tambah Data Pencapaian</small></p>
                         </a>
@@ -294,7 +294,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
             data-accordion="false">
             <li class="nav-item">
-                <a href="/opd/dashboard/" class="nav-link text-white">
+                <a href="{{ route('opd.index') }}" class="nav-link text-white">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -302,7 +302,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/" class="nav-link text-white">
+                <a href="{{ route('home') }}" class="nav-link text-white">
                     <i class="nav-icon fas fa-home"></i>
                     <p>
                         Home
@@ -319,13 +319,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/opd/indikator/" class="nav-link text-white">
+                        <a href="{{ route('opd.indikator.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Indikator</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/opd/indikator/create/" class="nav-link text-white">
+                        <a href="{{ route('opd.indikator.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p><small>Tambah Data Indikator</small></p>
                         </a>
@@ -342,13 +342,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="/opd/pencapaian/" class="nav-link text-white">
+                        <a href="{{ route('opd.pencapaian.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Pencapaian</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/opd/pencapaian/create/" class="nav-link text-white">
+                        <a href="{{ route('opd.pencapaian.create') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p><small>Tambah Data Pencapaian</small></p>
                         </a>
