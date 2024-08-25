@@ -91,6 +91,10 @@
             select {
                 width: 100%;
             }
+
+            .svg-atas {
+                display: none;
+            }
         }
     </style>
 @endsection

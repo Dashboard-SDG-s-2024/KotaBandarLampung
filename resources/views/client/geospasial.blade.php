@@ -172,6 +172,10 @@
             .table-container {
                 overflow: auto;
             }
+
+            .svg-atas {
+                display: none;
+            }
         }
     </style>
 @endsection

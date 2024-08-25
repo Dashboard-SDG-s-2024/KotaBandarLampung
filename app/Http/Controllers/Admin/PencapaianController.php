@@ -79,7 +79,7 @@ class PencapaianController extends Controller
     $request->validate([
         'indikator_id' => 'required',
         'tahun' => 'required|numeric|digits:4',
-        'persentase' => 'required|numeric|between:0,100',
+        'persentase' => 'required|',
         'sumber_data' => 'required',
     ], [
         'indikator_id.required' => 'Indikator tidak boleh kosong!',
@@ -87,8 +87,6 @@ class PencapaianController extends Controller
         'tahun.numeric' => 'Tahun harus berupa angka!',
         'tahun.digits' => 'Tahun harus terdiri dari 4 digit!',
         'persentase.required' => 'Persentase tidak boleh kosong!',
-        'persentase.numeric' => 'Persentase harus berupa angka!',
-        'persentase.between' => 'Persentase harus berada di antara 0 dan 100!',
         'sumber_data.required' => 'Sumber data tidak boleh kosong!',
     ]);
 
@@ -150,7 +148,7 @@ public function update(Request $request, $id)
 {
     $request->validate([
         'tahun' => 'required|numeric|digits:4',
-        'persentase' => 'required|numeric|between:0,100',
+        'persentase' => 'required',
         'tingkatan' => 'required|max:255',
         'keterangan' => 'nullable|max:255',
     ], [
@@ -158,8 +156,6 @@ public function update(Request $request, $id)
         'tahun.numeric' => 'Tahun harus berupa angka!',
         'tahun.digits' => 'Tahun harus terdiri dari 4 digit!',
         'persentase.required' => 'Persentase harus diisi!',
-        'persentase.numeric' => 'Persentase harus berupa angka!',
-        'persentase.between' => 'Persentase harus berada di antara 0 dan 100!',
         'tingkatan.required' => 'Tingkatan tidak boleh kosong!',
         'tingkatan.max' => 'Tingkatan melebihi batas!',
         'keterangan.max' => 'Keterangan melebihi batas!'

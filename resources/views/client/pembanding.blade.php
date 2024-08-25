@@ -4,10 +4,6 @@
 
 @section('style')
     <style>
-        .container {
-            width: 90%;
-        }
-
         .svg-atas {
             position: absolute;
             top: 0;
@@ -108,6 +104,10 @@
             .form-group {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .svg-atas {
+                display: none;
             }
         }
 

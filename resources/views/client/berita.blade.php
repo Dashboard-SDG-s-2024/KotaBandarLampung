@@ -18,6 +18,12 @@
             z-index: -1;
             margin-bottom: 100px;
         }
+
+        @media (max-width: 767px) {
+            .svg-atas {
+                display: none;
+            }
+        }
     </style>
 @endsection
 
@@ -43,7 +49,8 @@
         @if ($beritas->isEmpty())
             <div class="alert alert-info text-center">
                 <h4 class="alert-heading font-weight-bold">Belum Ada Berita!</h4>
-                        <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a href="{{route('kontak')}}" class="text-warning">hubungi kami</a> jika ada pertanyaan.</p>
+                <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a
+                        href="{{ route('kontak') }}" class="text-warning">hubungi kami</a> jika ada pertanyaan.</p>
             </div>
         @else
             <div class="d-flex flex-wrap">
@@ -54,12 +61,15 @@
                     @endphp
                     <a href="{{ route('berita.show', $berita->slug_berita) }}" class="col-md-4">
                         <div class="card mb-4" style="border-radius: 12px;">
-                            <div class="card-img-top-container" style="position: relative; width: 100%; padding-bottom: 75%;">
+                            <div class="card-img-top-container"
+                                style="position: relative; width: 100%; padding-bottom: 75%;">
                                 @if ($first_image)
-                                    <img src="{{ asset('assets/img/' . $first_image) }}" class="card-img-top p-2" alt="{{ $berita->judul_berita }}"
+                                    <img src="{{ asset('assets/img/' . $first_image) }}" class="card-img-top p-2"
+                                        alt="{{ $berita->judul_berita }}"
                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                                 @else
-                                    <img src="{{ asset('assets/img/default-image.png') }}" class="card-img-top p-2" alt="Default Image"
+                                    <img src="{{ asset('assets/img/default-image.png') }}" class="card-img-top p-2"
+                                        alt="Default Image"
                                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
                                 @endif
                             </div>
@@ -70,7 +80,8 @@
                                     {!! Str::limit($berita->konten_berita, 50) !!}
                                 </p>
                                 <p class="card-text">
-                                    <small class="text-muted">Diposting pada {{ $berita->created_at->format('H:i') }} WIB - {{ $berita->created_at->format('d/m/Y') }} oleh Admin</small>
+                                    <small class="text-muted">Diposting pada {{ $berita->created_at->format('H:i') }} WIB -
+                                        {{ $berita->created_at->format('d/m/Y') }} oleh Admin</small>
                                 </p>
                             </div>
                         </div>
