@@ -142,6 +142,10 @@
             animation: moveCloudsRight 60s linear infinite;
         }
 
+        .line-spacing {
+            line-height: 2;
+        }
+
         .card-berita {
             border-radius: 10px;
             overflow: hidden;
@@ -330,14 +334,14 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-lg-12 mx-auto">
-                    <h5 class="font-weight-light text-justify">
+                    <h5 class="font-weight-light text-justify line-spacing">
                         <span class="font-weight-bold">Kota Bandar Lampung</span> telah berkomitmen untuk mencapai
                         <span class="font-weight-bold">Sustainable Development Goals (SDGs)</span> atau
                         <span class="font-weight-bold">Tujuan Pembangunan Berkelanjutan (TPB)</span> yang ditunjukkan dengan
-                        telah disusun dan ditetapkannya
-                        dokumen Rencana Aksi Daerah (RAD) SDGs/TPB Kota Bandar Lampung 2020-2024.
+                        telah disusun dan ditetapkannya dokumen Rencana Aksi Daerah (RAD) SDGs/TPB Kota Bandar Lampung
+                        2020-2024.
                     </h5>
-                    <h5 class="font-weight-light text-justify">
+                    <h5 class="mt-4 font-weight-light text-justify line-spacing">
                         Ini selaras dengan dokumen RAD SDGs/TPB Provinsi Lampung yang telah ditetapkan oleh Pemerintah
                         Provinsi Lampung. Komitmen dalam perencanaan pembangunan Kota Bandar Lampung pun ditunjukkan dengan
                         telah diselaraskannya dokumen Rencana Pembangunan Jangka Menengah Daerah (RPJMD) Kota Bandar Lampung
@@ -357,13 +361,16 @@
             </div>
             <div class="row">
                 @if ($beritas->isEmpty())
-                <div class="col-12 text-center">
-                    <div class="alert alert-info" role="alert" style="border-radius: 12px; background-color: #e3f2fd; color: #0d47a1; padding: 20px;">
-                        <i class="fas fa-exclamation-circle fa-3x mb-3" style="color: #0d47a1;"></i>
-                        <h4 class="alert-heading font-weight-bold">Belum Ada Berita!</h4>
-                        <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a href="{{ route('kontak') }}" class="text-primary">hubungi kami</a> jika ada pertanyaan.</p>
+                    <div class="col-12 text-center">
+                        <div class="alert alert-info" role="alert"
+                            style="border-radius: 12px; background-color: #e3f2fd; color: #0d47a1; padding: 20px;">
+                            <i class="fas fa-exclamation-circle fa-3x mb-3" style="color: #0d47a1;"></i>
+                            <h4 class="alert-heading font-weight-bold">Belum Ada Berita!</h4>
+                            <p>Sepertinya belum ada berita yang ditampilkan saat ini. Silakan periksa lagi nanti atau <a
+                                    href="{{ route('kontak') }}" class="text-primary">hubungi kami</a> jika ada pertanyaan.
+                            </p>
+                        </div>
                     </div>
-                </div>                
                 @else
                     @foreach ($beritas as $index => $berita)
                         @php
@@ -397,7 +404,7 @@
                 @endif
             </div>
         </div>
-        
+
         <div class="container mb-5 scroll-animation">
             <div class="video-container shadow-md">
                 <h2 class="font-weight-bold mx-auto">Dashboard SDGs Kota Bandar Lampung</h2>
