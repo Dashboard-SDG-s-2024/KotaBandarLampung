@@ -39,34 +39,26 @@ class DokumenSDGsController extends Controller
         'judul' => 'required|string|max:255',
         'gambar' => 'nullable|mimes:jpg,bmp,png,svg,jpeg|max:2048',
         'file' => 'nullable|mimes:pdf|max:5120',
-    ], [
-        'judul.required' => 'Judul harus diisi.',
-        'judul.string' => 'Judul harus berupa teks.',
-        'judul.max' => 'Judul tidak boleh lebih dari 255 karakter.',
-        'gambar.mimes' => 'Gambar harus berupa file dengan format: jpg, bmp, png, svg, jpeg.',
-        'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
-        'file.mimes' => 'File harus berupa PDF.',
-        'file.max' => 'Ukuran file PDF tidak boleh lebih dari 5MB.',
     ]);
 
-        $dokumen = new Dokumen();
-        $dokumen->judul = $request->judul;
+    $dokumen = new Dokumen();
+    $dokumen->judul = $request->judul;
 
-        if ($request->hasFile('gambar')) {
-            $gambar = $request->file('gambar');
-            $gambar_name = time() . '.' . $gambar->getClientOriginalExtension();
-            $dokumen->gambar = $gambar_name;
-            $gambar->move(public_path('assets/img'), $gambar_name);
-        }
+    if ($request->hasFile('gambar')) {
+        $gambar = $request->file('gambar');
+        $gambar_name = time() . '.' . $gambar->getClientOriginalExtension();
+        $gambar->move('assets/img', $gambar_name);
+        $dokumen->gambar = $gambar_name;
+    }
 
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $file_name = time() . '.' . $file->getClientOriginalExtension();
-            $dokumen->file = $file_name;
-            $file->move(public_path('assets/template'), $file_name);
-        }
+    if ($request->hasFile('file')) {
+        $file = $request->file('file');
+        $file_name = time() . '.' . $file->getClientOriginalExtension();
+        $file->move('assets/template', $file_name);
+        $dokumen->file = $file_name;
+    }
 
-        $dokumen->save();
+    $dokumen->save();
 
         if (auth()->user()->roles_id == 1) {
             return redirect('super/dokumen')->with('sukses', 'Dokumen berhasil diupdate.');
@@ -86,43 +78,33 @@ class DokumenSDGsController extends Controller
 
     public function update(Request $request, $id)
 {
-        $request->validate([
-            'judul' => 'required|string|max:255',
-            'gambar' => 'nullable|mimes:jpg,bmp,png,svg,jpeg|max:2048',
-            'file' => 'nullable|mimes:pdf|max:5120',
-        ], [
-            'judul.required' => 'Judul harus diisi.',
-            'judul.string' => 'Judul harus berupa teks.',
-            'judul.max' => 'Judul tidak boleh lebih dari 255 karakter.',
-            'gambar.mimes' => 'Gambar harus berupa file dengan format: jpg, bmp, png, svg, jpeg.',
-            'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
-            'file.mimes' => 'File harus berupa PDF.',
-            'file.max' => 'Ukuran file PDF tidak boleh lebih dari 5MB.',
-        ]);
+    $request->validate([
+        'judul' => 'required|string|max:255',
+        'gambar' => 'nullable|mimes:jpg,bmp,png,svg,jpeg|max:2048',
+        'file' => 'nullable|mimes:pdf|max:5120',
+    ]);
 
     $dokumen = Dokumen::findOrFail($id);
     $dokumen->judul = $request->judul;
 
     if ($request->hasFile('gambar')) {
-        // Remove old image if exists
         if ($dokumen->gambar && file_exists(public_path('assets/img/' . $dokumen->gambar))) {
             unlink(public_path('assets/img/' . $dokumen->gambar));
         }
         $gambar = $request->file('gambar');
         $gambar_name = time() . '.' . $gambar->getClientOriginalExtension();
+        $gambar->move('assets/img', $gambar_name);
         $dokumen->gambar = $gambar_name;
-        $gambar->move(public_path('assets/img'), $gambar_name);
     }
 
     if ($request->hasFile('file')) {
-        // Remove old file if exists
         if ($dokumen->file && file_exists(public_path('assets/template/' . $dokumen->file))) {
             unlink(public_path('assets/template/' . $dokumen->file));
         }
         $file = $request->file('file');
         $file_name = time() . '.' . $file->getClientOriginalExtension();
+        $file->move('assets/template', $file_name);
         $dokumen->file = $file_name;
-        $file->move(public_path('assets/template'), $file_name);
     }
 
     $dokumen->save();
