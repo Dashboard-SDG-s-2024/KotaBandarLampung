@@ -25,7 +25,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="file">File (PDF)</label>
+        <label for="file">File<span style="color:red"> (*Ukuran PDF wajib dibawah 2MB)</span></label>
         <input type="file" name="file" class="form-control @error('file') is-invalid @enderror" accept=".pdf">
         @error('file')
             <span class="invalid-feedback" role="alert">
