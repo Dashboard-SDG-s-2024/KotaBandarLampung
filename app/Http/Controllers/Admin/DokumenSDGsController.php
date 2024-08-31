@@ -84,11 +84,13 @@ class DokumenSDGsController extends Controller
         'judul' => 'required|string|max:255',
         'gambar' => 'nullable|mimes:jpg,bmp,png,svg,jpeg|max:2048',
         'file' => 'nullable|mimes:pdf|max:5120',
+    ],[
+        'judul.required' => 'Judul Tidak Boleh Kosong.',
+        'gambar.mimes' => 'Gambar harus berupa file dengan format: jpg, bmp, png, svg, jpeg.',
+        'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
+        'file.mimes' => 'File harus berupa file dengan format: pdf.',
+        'file.max' => 'Ukuran gambar tidak boleh lebih dari 5MB.',
     ]);
-
-    // $dokumen = new Dokumen();
-    // $dokumen->judul = $request->judul;
-    // $dokumen->save();
 
     if ($request->hasFile('gambar')) {
         $gambar = $request->file('gambar');
