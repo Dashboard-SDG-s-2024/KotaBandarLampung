@@ -41,24 +41,26 @@ class DokumenSDGsController extends Controller
         'file' => 'nullable|mimes:pdf|max:5120',
     ]);
 
-    $dokumen = new Dokumen();
-    $dokumen->judul = $request->judul;
+    // $dokumen = new Dokumen();
+    // $dokumen->judul = $request->judul;
+    // $dokumen->save();
 
     if ($request->hasFile('gambar')) {
         $gambar = $request->file('gambar');
         $gambar_name = time() . '.' . $gambar->getClientOriginalExtension();
         $gambar->move('assets/img', $gambar_name);
-        $dokumen->gambar = $gambar_name;
     }
 
     if ($request->hasFile('file')) {
         $file = $request->file('file');
         $file_name = time() . '.' . $file->getClientOriginalExtension();
         $file->move('assets/template', $file_name);
-        $dokumen->file = $file_name;
     }
-
-    $dokumen->save();
+    Dokumen::create([
+        'judul' => $request->judul,
+        'gambar' => $gambar_name,
+        'file' => $file_name,
+    ]);
 
         if (auth()->user()->roles_id == 1) {
             return redirect('super/dokumen')->with('sukses', 'Dokumen berhasil diupdate.');
@@ -84,30 +86,26 @@ class DokumenSDGsController extends Controller
         'file' => 'nullable|mimes:pdf|max:5120',
     ]);
 
-    $dokumen = Dokumen::findOrFail($id);
-    $dokumen->judul = $request->judul;
+    // $dokumen = new Dokumen();
+    // $dokumen->judul = $request->judul;
+    // $dokumen->save();
 
     if ($request->hasFile('gambar')) {
-        if ($dokumen->gambar && file_exists(public_path('assets/img/' . $dokumen->gambar))) {
-            unlink(public_path('assets/img/' . $dokumen->gambar));
-        }
         $gambar = $request->file('gambar');
         $gambar_name = time() . '.' . $gambar->getClientOriginalExtension();
         $gambar->move('assets/img', $gambar_name);
-        $dokumen->gambar = $gambar_name;
     }
 
     if ($request->hasFile('file')) {
-        if ($dokumen->file && file_exists(public_path('assets/template/' . $dokumen->file))) {
-            unlink(public_path('assets/template/' . $dokumen->file));
-        }
         $file = $request->file('file');
         $file_name = time() . '.' . $file->getClientOriginalExtension();
         $file->move('assets/template', $file_name);
-        $dokumen->file = $file_name;
     }
-
-    $dokumen->save();
+    Dokumen::create([
+        'judul' => $request->judul,
+        'gambar' => $gambar_name,
+        'file' => $file_name,
+    ]);
 
     // Role-based redirection
     if (auth()->user()->roles_id == 1) {
