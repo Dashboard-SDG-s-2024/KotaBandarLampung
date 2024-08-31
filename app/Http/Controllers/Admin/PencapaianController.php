@@ -23,15 +23,13 @@ class PencapaianController extends Controller
             $pencapaians = Pencapaian::whereNull('indikator_id')->get();
         }
     } else {
-        $pencapaians = Pencapaian::paginate(100);
+        $pencapaians = Pencapaian::all();
     }
     // dd($pencapaians);
     $years = $pencapaians->pluck('tahun')->unique()->sortDesc();
 
     return view('admin.pencapaian.index', compact('pencapaians', 'years'));
 }
-
-
 
     public function create()
     {
