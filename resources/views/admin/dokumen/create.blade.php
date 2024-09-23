@@ -16,7 +16,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="gambar">Gambar Sampul Dokumen</label>
+        <label for="gambar">Gambar Sampul Dokumen <span style="color:red"> (Screenshoot dari halaman depan dokumen)</span></label>
         <input type="file" name="gambar" class="form-control @error('gambar') is-invalid @enderror" accept="image/*">
         @error('gambar')
             <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
         @enderror
     </div>
     <div class="form-group">
-        <label for="file">File<span style="color:red"> (*Ukuran PDF wajib dibawah 2MB)</span></label>
+        <label for="file">File<span style="color:red"> (*Ukuran PDF wajib dibawah 50Mb)</span></label>
         <input type="file" name="file" class="form-control @error('file') is-invalid @enderror" accept=".pdf">
         @error('file')
             <span class="invalid-feedback" role="alert">

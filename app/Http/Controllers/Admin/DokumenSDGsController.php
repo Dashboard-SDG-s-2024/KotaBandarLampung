@@ -38,7 +38,7 @@ class DokumenSDGsController extends Controller
     $request->validate([
         'judul' => 'required|string|max:255',
         'gambar' => 'nullable|mimes:jpg,bmp,png,svg,jpeg|max:2048',
-        'file' => 'nullable|mimes:pdf|max:5120',
+        'file' => 'nullable|mimes:pdf|max:51200',
     ]);
 
     // $dokumen = new Dokumen();
