@@ -10,8 +10,8 @@
     <div class="container py-5">
         <div class="row px-3">
             <div style="display: flex; align-items: center;">
-                <a class="navbar-brand" href="{{route('login')}}"><img src="{{ asset('assets/img/logo-sdgs.png') }}" width="50"
-                        alt=""></a>
+                <a class="navbar-brand" href="{{ route('login') }}"><img src="{{ asset('assets/img/logo-sdgs.png') }}"
+                        width="50" alt=""></a>
                 <h1 style="margin-left: 15px;">SDGs Kota Bandar Lampung</h1>
             </div>
             <div class="">
@@ -33,10 +33,9 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <p class="font-weight-light text-sm">
-                        Sekretariat Bappeda Kota Bandar Lampung
+                        Badan Perencanaan Pembangunan, Riset dan Inovasi Daerah Kota Bandar Lampung
                         <br>
-                        Jalan Robert Wolter Monginsidi No. 223, Tanjungkarang Pusat, Pengajaran, Kec. Tlk. Betung Utara,
-                        Kota Bandar Kota Bandar Lampung, Kota Bandar Lampung 35119
+                        Jl. Dr. Susilo Nomor 2, Sumur Batu, Telukbetung Utara, Bandar Lampung, 35214
                         <br>
                         Alamat email: bappeda@bandarlampungkota.go.id
                     </p>
