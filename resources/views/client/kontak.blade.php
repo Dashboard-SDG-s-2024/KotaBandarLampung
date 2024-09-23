@@ -11,12 +11,23 @@
                     <img class="w-100" src="{{ asset('assets/img/slider.png') }}" alt="">
                     <div class="card-body">
                         <!-- Kontak Informasi -->
-                        <div class="contact-info mb-4">
-                            <h5 class="font-weight-bold">{{ __('Informasi Kontak') }}</h5>
-                            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:sekretariat.sdgs@bappeda.go.id">
-                                    sekretariat.sdgs@bappeda.go.id</a></p>
-                            <p><i class="fas fa-phone"></i> Telepon: <a href="tel:+628123456789"> +62 812-3456-789</a></p>
+                        <!-- Kontak Kominfo -->
+                        <div class="contact-info mb-3 p-4 border-2 border">
+                            <h5 class="font-weight-bold">{{ __('Diskominfo Kota Bandar Lampung') }}</h5>
+                            <p><i class="fas fa-envelope"></i> Email: <a
+                                    href="mailto:diskominfo@bandarlampungkota.go.id">diskominfo@bandarlampungkota.go.id</a>
+                            </p>
+                            <p><i class="fas fa-phone"></i> Telepon: <a href="tel:+6281122334455">0721 456-7890</a></p>
                         </div>
+
+                        <!-- Kontak Bapperida -->
+                        <div class="contact-info mb-4 p-4 border-2 border">
+                            <h5 class="font-weight-bold">{{ __('Bapperida Kota Bandar Lampung') }}</h5>
+                            <p><i class="fas fa-envelope"></i> Email: <a
+                                    href="mailto:sdgskotabandarlampung@gmail.com">sdgskotabandarlampung@gmail.com </a></p>
+                            <p><i class="fas fa-phone"></i> Telepon: <a href="tel:+628123456789">0721 456-7890</a></p>
+                        </div>
+
 
                         <h5 class="mt-5 mb-3 font-weight-bold">{{ __('Kirim Pesan Langsung') }}</h5>
 
