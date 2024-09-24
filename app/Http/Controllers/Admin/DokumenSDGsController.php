@@ -38,7 +38,9 @@ class DokumenSDGsController extends Controller
     $request->validate([
         'judul' => 'required|string|max:255',
         'gambar' => 'nullable|mimes:jpg,bmp,png,svg,jpeg|max:2048',
-        'file' => 'nullable|mimes:pdf|max:5120',
+        'file' => 'nullable|mimes:pdf|max:5120', 
+    ], [
+        'file.max' => 'Ukuran file tidak boleh lebih dari 5MB.', // Custom error message
     ]);
 
     // $dokumen = new Dokumen();
@@ -89,7 +91,7 @@ class DokumenSDGsController extends Controller
         'gambar.mimes' => 'Gambar harus berupa file dengan format: jpg, bmp, png, svg, jpeg.',
         'gambar.max' => 'Ukuran gambar tidak boleh lebih dari 2MB.',
         'file.mimes' => 'File harus berupa file dengan format: pdf.',
-        'file.max' => 'Ukuran gambar tidak boleh lebih dari 5MB.',
+        'file.max' => 'Ukuran file tidak boleh lebih dari 5MB.',
     ]);
 
     if ($request->hasFile('gambar')) {
