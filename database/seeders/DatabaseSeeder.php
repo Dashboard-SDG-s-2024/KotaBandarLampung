@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             PilarSeeder::class,
             TujuanSeeder::class,
             IndikatorSeeder::class,
-            // PencapaianSeeder::class,
+            DokumenSDGsSeeder::class,
             ProvinsiSeeder::class,
             KabupatenSeeder::class,
             KecamatanSeeder::class,
