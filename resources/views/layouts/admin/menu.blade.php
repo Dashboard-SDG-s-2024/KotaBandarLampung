@@ -223,7 +223,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="{{ route('admin.tujuan') }}" class="nav-link text-white">
+                        <a href="{{ route('admin.tujuan.index') }}" class="nav-link text-white">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Data Tujuan</p>
                         </a>
