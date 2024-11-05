@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="card shadow-sm p-4" style="border-radius: 12px;">
-                        <h1 class="my-3 text-justify">{!! nl2br(preg_replace('/\s+/', ' ', trim($berita->judul_berita))) !!}</h1>
+                        <h1 class="my-3 text-left">{!! nl2br(preg_replace('/\s+/', ' ', trim($berita->judul_berita))) !!}</h1>
                         <div class="mb-5">
                             <span class="text-muted">Diposting pada {{ $berita->created_at->format('H:i') }} WIB -
                                 {{ $berita->created_at->format('d/m/Y') }} oleh Admin</span>
