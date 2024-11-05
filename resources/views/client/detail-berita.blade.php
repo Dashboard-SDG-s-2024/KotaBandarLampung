@@ -79,7 +79,7 @@
                                 {{ $berita->created_at->format('d/m/Y') }} oleh Admin</span>
                         </div>
 
-                        <div class="content mb-3 text-justify">
+                        <div class="content mb-3 text-left">
                             <p>{!! nl2br($berita->konten_berita) !!}</p>
                         </div>
                     </div>
