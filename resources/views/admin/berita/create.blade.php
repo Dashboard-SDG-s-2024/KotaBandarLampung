@@ -99,7 +99,7 @@
                                             <button type="button" class="btn btn-primary" id="tgl_publish_kosongkan" title="clear" data-clear>Kosongkan</button>                          
                                         </div>
                                         <div id="tgl_publishHelpBlock" class="form-text">
-                                            Tanggal dan waktu direncanakan untuk terbit dan dapat diakses, harus lebih dari tanggal dan waktu sekarang. Kosongkan jika ingin berita yang telah dibuat dapat diakses dan langsung terbit saat itu juga. <br>
+                                            <a class="text-bold">Tanggal dan waktu direncanakan untuk terbit dan dapat diakses, harus lebih dari tanggal dan waktu sekarang. Kosongkan jika ingin berita yang telah dibuat dapat diakses dan langsung terbit saat itu juga. <br>
                                         </div>
                                     </div>
                                 </div>
