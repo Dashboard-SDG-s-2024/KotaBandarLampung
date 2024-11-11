@@ -52,7 +52,7 @@
     </section>
     <!-- /.card -->
 
-    <script src="https://cdn.tiny.cloud/1/{{ env("TINYMCE_API_KEY") }}/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/icjjp2cihw6xqy0lhyvw78k3f4u9suo4mfgmisljt20jqi5b/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
         
     <script type="text/javascript">
         tinymce.init({
