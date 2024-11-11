@@ -388,7 +388,7 @@
                             </div>
                         @endif
                         <div class="card-body">
-                            <h5 class="card-title font-weight-bold">{!! Str::limit($berita->judul_berita, 50) !!}</h5>
+                            <h5 class="card-title font-weight-bold">{!! Str::limit($berita->judul_berita, 30) !!}</h5>
                             <p class="card-text text-truncate"
                                 style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                                 {!! Str::limit($berita->konten_berita, 50) !!}

@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="gambar_berita">Gambar</label>
-                                    <input type="file" name="gambar_berita[]" class="form-control @error('gambar_berita') is-invalid @enderror" multiple required accept="image/*">
+                                    <input type="file" name="gambar_berita[]" class="form-control @error('gambar_berita') is-invalid @enderror" multiple accept="image/*">
                                     @error('gambar_berita')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
