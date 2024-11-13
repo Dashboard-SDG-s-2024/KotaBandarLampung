@@ -290,6 +290,27 @@
                 max-width: 100%;
             }
         }
+
+        @media (min-width: 768px) {
+            a .card {
+                height: 320px;
+            }
+        }
+        @media (min-width: 1024px) {
+            a .card {
+                height: 350px;
+            }
+        }
+        @media (min-width: 1200px) {
+            a .card {
+                height: 380px;
+            }
+        }
+        @media (min-width: 1440px) {
+            a .card {
+                height: 400px;
+            }
+        }
     </style>
 @endsection
 
@@ -378,7 +399,7 @@
                     $first_image = $gambar_berita[0] ?? null;
                 @endphp
                 <a href="{{ route('berita.show', $berita->slug_berita) }}" class="col-md-4 card-berita">
-                    <div class="card mb-4" style="border-radius: 12px>
+                    <div class="card mb-4" style="border-radius: 12px">
                         @if ($first_image)
                             <div class="card-img-top-container"
                                 style="position: relative; width: 100%; padding-bottom: 75%;">

@@ -35,6 +35,11 @@
                 height: 350px;
             }
         }
+        @media (min-width: 1200px) {
+            a .card {
+                height: 380px;
+            }
+        }
         @media (min-width: 1440px) {
             a .card {
                 height: 400px;
