@@ -378,7 +378,7 @@
                     $first_image = $gambar_berita[0] ?? null;
                 @endphp
                 <a href="{{ route('berita.show', $berita->slug_berita) }}" class="col-md-4 card-berita">
-                    <div class="card mb-4" style="border-radius: 12px;">
+                    <div class="card mb-4" style="border-radius: 12px>
                         @if ($first_image)
                             <div class="card-img-top-container"
                                 style="position: relative; width: 100%; padding-bottom: 75%;">

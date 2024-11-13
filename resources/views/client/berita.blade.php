@@ -24,6 +24,22 @@
                 display: none;
             }
         }
+
+        @media (min-width: 768px) {
+            a .card {
+                height: 320px;
+            }
+        }
+        @media (min-width: 1024px) {
+            a .card {
+                height: 350px;
+            }
+        }
+        @media (min-width: 1440px) {
+            a .card {
+                height: 400px;
+            }
+        }
     </style>
 @endsection
 
