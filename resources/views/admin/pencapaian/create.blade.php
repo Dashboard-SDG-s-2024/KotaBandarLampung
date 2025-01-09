@@ -342,111 +342,97 @@
         }
     
         function previewFiles() {
-            const content = document.getElementById('file-content');
-            const files = document.getElementById('files').files;
-            const tahun = document.getElementById('tahun').value.trim();
-    
-            content.innerHTML = '';
-            let hasNullData = false;
-    
-            for (const file of files) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, {
-                        type: 'array'
-                    });
-                    const firstSheetName = workbook.SheetNames[0];
-                    const worksheet = workbook.Sheets[firstSheetName];
-                    const sheetData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-    
-                    const headers = sheetData[1];
-                    const kodeIndex = 0;
-                    const namaIndex = 1;
-                    const nilaiIndex = 2;
-                    const sumberIndex = 3;
-                    const kecamatanIndex = 4;
-                    // const namaKegiatanIndex = 5;
-                    // const anggaranIndex = 6;
-                    // const sumberPendanaanIndex = 7;
-                    // const lokasiIndex = 8;
-                    const tingkatanIndex = 5;
-                    const keteranganIndex = 6;
-    
-                    if (kodeIndex === -1 || namaIndex === -1) {
-                        content.innerHTML += 'Kolom Kode dan/atau Nama tidak ditemukan.';
-                        $('#simpan').hide();
-                        $('#perbaiki').show();
-                        return;
-                    }
-    
-                    let tableHtml = '<table class="table table-striped table-header-green table-cell-padding">';
-                    tableHtml += '<thead class="bg-success"><tr class="bg-success"><th>Kode Indikator</th><th>Nama Indikator</th><th>Nilai</th><th>Sumber Data</th><th>Nama Kecamatan</th><th>Tingkatan</th><th>Keterangan</th></tr></thead><tbody>';
-    
-                    for (let i = 2; i < sheetData.length; i++) {
-                        const row = sheetData[i];
-                        const kode = row[kodeIndex] ?? 'Kode Indikator tidak ada';
-                        const nama = row[namaIndex] ?? 'Nama Indikator tidak ada';
-                        const nilai = row[nilaiIndex] ?? 'Nilai tidak ada';
-                        const sumber = row[sumberIndex] ?? 'Sumber data tidak ada';
-                        const kecamatan = row[kecamatanIndex] ?? 'Nama Kecamatan data tidak ada';
-                        // const namaKegiatan = row[namaKegiatanIndex] ?? '-';
-                        // const anggaran = row[anggaranIndex] ?? '-';
-                        // const sumberPendanaan = row[sumberPendanaanIndex] ?? '-';
-                        // const lokasi = row[lokasiIndex] ?? '-';
-                        const tingkatan = row[tingkatanIndex] ?? '-';
-                        const keterangan = row[keteranganIndex] ?? '-';
-    
-                        const kodeClass = kode === 'Kode Indikator tidak ada' ? 'bg-danger' : '';
-                        const namaClass = nama === 'Nama Indikator tidak ada' ? 'bg-danger' : '';
-                        const nilaiClass = nilai === 'Nilai tidak ada' ? 'bg-danger' : '';
-                        const sumberClass = sumber === 'Sumber data tidak ada' ? 'bg-danger' : '';
-                        // const kecamatanClass = kecamatan === 'Kecamatan data tidak ada' ? 'bg-danger' : '';
-                        // const namaKegiatanClass = namaKegiatan === 'Nama Pencapaian/Kegiatan data tidak ada' ? 'bg-danger' : '';
-                        // const anggaranClass = anggaran === 'Anggaran data tidak ada' ? 'bg-danger' : '';
-                        // const sumberPendanaanClass = sumberPendanaan === 'Sumber Pendanaan data tidak ada' ? 'bg-danger' : '';
-                        // const lokasiClass = lokasi === 'Lokasi data tidak ada' ? 'bg-danger' : '';
-                        // const tingkatanClass = tingkatan === 'Tingkatan data tidak ada' ? 'bg-danger' : '';
-                        // const keteranganClass = keterangan === 'Keterangan data tidak ada' ? 'bg-danger' : '';
-    
+        const content = document.getElementById('file-content');
+        const files = document.getElementById('files').files;
+        const tahun = document.getElementById('tahun').value.trim();
+
+        content.innerHTML = '';
+        let hasNullData = false;
+
+        for (const file of files) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, {
+                    type: 'array'
+                });
+                const firstSheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[firstSheetName];
+                const sheetData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+
+                const headers = sheetData[1];
+                const kodeIndex = 0;
+                const namaIndex = 1;
+                const nilaiIndex = 2;
+                const sumberIndex = 3;
+                const kecamatanIndex = 4;
+                const tingkatanIndex = 5;
+                const keteranganIndex = 6;
+
+                if (kodeIndex === -1 || namaIndex === -1) {
+                    content.innerHTML += 'Kolom Kode dan/atau Nama tidak ditemukan.';
+                    $('#simpan').hide();
+                    $('#perbaiki').show();
+                    return;
+                }
+
+                let tableHtml = '<table class="table table-striped table-header-green table-cell-padding">';
+                tableHtml += '<thead class="bg-success"><tr class="bg-success"><th>Kode Indikator</th><th>Nama Indikator</th><th>Nilai</th><th>Sumber Data</th><th>Nama Kecamatan</th><th>Tingkatan</th><th>Keterangan</th></tr></thead><tbody>';
+
+                for (let i = 2; i < sheetData.length; i++) {
+                    const row = sheetData[i];
+                    const kode = row[kodeIndex] ?? 'Kode Indikator tidak ada';
+                    const nama = row[namaIndex] ?? 'Nama Indikator tidak ada';
+                    const nilai = row[nilaiIndex] ?? 'Nilai tidak ada';
+                    const sumber = row[sumberIndex] ?? 'Sumber data tidak ada';
+                    const kecamatan = row[kecamatanIndex] ?? 'Nama Kecamatan data tidak ada';
+                    const tingkatan = row[tingkatanIndex] ?? '-';
+                    const keterangan = row[keteranganIndex] ?? '-';
+
+                    const kodeClass = kode === 'Kode Indikator tidak ada' ? 'bg-danger' : '';
+                    const namaClass = nama === 'Nama Indikator tidak ada' ? 'bg-danger' : '';
+                    const nilaiClass = nilai === 'Nilai tidak ada' ? 'bg-danger' : '';
+                    const sumberClass = sumber === 'Sumber data tidak ada' ? 'bg-danger' : '';
+                    const kecamatanClass = kecamatan === 'Nama Kecamatan data tidak ada' ? 'bg-danger' : '';
+
                     tableHtml += `<tr>
-                        <td>${kode}</td>
-                        <td>${nama}</td>
-                        <td>${nilai}</td>
-                        <td>${sumber}</td>
-                        <td>${kecamatan}</td>
+                        <td class="${kodeClass}">${kode}</td>
+                        <td class="${namaClass}">${nama}</td>
+                        <td class="${nilaiClass}">${nilai}</td>
+                        <td class="${sumberClass}">${sumber}</td>
+                        <td class="${kecamatanClass}">${kecamatan}</td>
                         <td>${tingkatan}</td>
                         <td>${keterangan}</td>
                     </tr>`;
-    
-                        if (kode === 'Kode Indikator tidak ada' || nama === 'Nama Indikator tidak ada' || nilai === 'Nilai tidak ada' || sumber === 'Sumber data tidak ada' || kecamatan === 'Kecamatan data tidak ada') {
+
+                    if (kode === 'Kode Indikator tidak ada' || nama === 'Nama Indikator tidak ada' || nilai === 'Nilai tidak ada' || sumber === 'Sumber data tidak ada' || kecamatan === 'Nama Kecamatan data tidak ada') {
                         hasNullData = true;
                     }
                 }
-    
-                    tableHtml += '</tbody></table>';
-                    content.innerHTML += tableHtml;
-    
-                    if (hasNullData) {
-                        $('#btn_modal_close_footer').hide();
-                        $('#simpan').hide();
-                        $('#tahunBtn').hide();
-                        $('#perbaiki').show();
-                    } else if (tahun == '') {
-                        $('#btn_modal_close_footer').hide();
-                        $('#simpan').hide();
-                        $('#tahunBtn').show();
-                        $('#perbaiki').hide();
-                    } else {
-                        $('#simpan').show();
-                        $('#perbaiki').hide();
-                    }
-                };
-                reader.readAsArrayBuffer(file);
-            }
-    
-            $('#filePreviewModal').modal('show');
+
+                tableHtml += '</tbody></table>';
+                content.innerHTML += tableHtml;
+
+                if (hasNullData) {
+                    $('#btn_modal_close_footer').hide();
+                    $('#simpan').hide();
+                    $('#tahunBtn').hide();
+                    $('#perbaiki').show();
+                } else if (tahun == '') {
+                    $('#btn_modal_close_footer').hide();
+                    $('#simpan').hide();
+                    $('#tahunBtn').show();
+                    $('#perbaiki').hide();
+                } else {
+                    $('#simpan').show();
+                    $('#perbaiki').hide();
+                }
+            };
+            reader.readAsArrayBuffer(file);
         }
-    </script>
+
+        $('#filePreviewModal').modal('show');
+    }
+</script>
     
 @endsection

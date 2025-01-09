@@ -14,7 +14,7 @@ class BerandaController extends Controller
     {
         $pilars = Pilar::all();
         $tujuans = Tujuan::all();
-        $beritas = Berita::where('waktu_berita', '<=', date('d/m/Y'))->orderByDesc('waktu_berita')->limit(3)->get();
+        $beritas = Berita::take(3)->get();
         return view('home', compact('tujuans', 'pilars', 'beritas'));
     }
 
