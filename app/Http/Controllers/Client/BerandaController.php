@@ -14,7 +14,7 @@ class BerandaController extends Controller
     {
         $pilars = Pilar::all();
         $tujuans = Tujuan::all();
-        $beritas = Berita::take(3)->get();
+        $beritas = Berita::orderBy('created_at', 'desc')->take(3)->get();
         return view('home', compact('tujuans', 'pilars', 'beritas'));
     }
 
