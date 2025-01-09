@@ -16,7 +16,7 @@ class ClientBeritaController extends Controller
      */
     public function index()
     {
-        $beritas = Berita::all();
+        $beritas = Berita::orderBy('created_at', 'desc')->get();
         return view('client.berita', compact('beritas'));
     }
     public function show(string $slug)
